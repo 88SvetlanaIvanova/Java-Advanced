@@ -1,0 +1,22 @@
+public class jdbc {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        String regNum = scanner.nextLine(); // a valid or invalid registration number
+        Pattern pattern = Pattern.compile(
+                "(([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])\\.){3}" +
+                        "([01]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])");
+
+        Matcher matcher = pattern.matcher(regNum);
+        System.out.println(matcher.matches() ? "YES" : "NO");
+    }
+}
+//1) First  check whether the IP is valid or not
+//2) If the IP is valid  split the  ip address using split() method
+//3) After splitting check whether each entity of ip address is 8 bit ( not greater than 255) , don't forget to convert the each entity of IP to Integer  use Integer.parseInt(String) method .
+//It is possible to do it using just regex. Relook at the theory from Sets, ranges, alternations. Split 0-255 into 2 different portion using | and ().
+//Test #15: 4.4.4.4
+//1) Check if the IP has 4 numbers and 3 dots using regex (you don't have to limit it's range just use \\d)
+//2) If yes, split the IP, and then you can convert the number into integers
+//3) Check them all if they meet the conditions
+//().().().()
